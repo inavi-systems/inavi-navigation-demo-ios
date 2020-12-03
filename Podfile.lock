@@ -1,0 +1,16 @@
+PODS:
+  - inavi-navigation-sdk (0.0.1)
+
+DEPENDENCIES:
+  - inavi-navigation-sdk
+
+SPEC REPOS:
+  trunk:
+    - inavi-navigation-sdk
+
+SPEC CHECKSUMS:
+  inavi-navigation-sdk: c5596c1543a3e1f17d0ea3e6267976eb0f8b9b1e
+
+PODFILE CHECKSUM: c36a47e696975a8d7621c21313744e1bed16887e
+
+COCOAPODS: 1.10.0

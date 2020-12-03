@@ -1,0 +1,14 @@
+framework module NaviSDK {
+  umbrella header "NaviSDK.h"
+
+  export *
+
+  explicit module Private {
+      //header "iNaviMapView.h"
+  }
+}
+
+module NaviSDK.Swift {
+    header "NaviSDK-Swift.h"
+    requires objc
+}

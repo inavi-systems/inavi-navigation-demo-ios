@@ -1,0 +1,67 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.2.4 (swiftlang-1103.0.32.9 clang-1103.0.32.53)
+// swift-module-flags: -target arm64-apple-ios10.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name NaviSDK
+@_exported import NaviSDK
+import Swift
+import UIKit
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(InvView) public class InvView : UIKit.UIView {
+  @objc weak public var delegate: NaviSDK.InvViewProtocol?
+  public func updateView()
+  @objc override dynamic public func point(inside point: CoreGraphics.CGPoint, with event: UIKit.UIEvent?) -> Swift.Bool
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class InvMenuView : NaviSDK.InvView {
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(InvMenuLayer) public class InvMenuLayer : NaviSDK.InvMenuView {
+  @objc override public func updateView()
+  @objc public func startSpinMapBT(_ angle: Swift.Float)
+  @objc deinit
+}
+extension InvMenuLayer : NaviSDK.InvViewProtocol {
+  @objc dynamic public func onTouchMapMode()
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(IARouteSearchModule) public class IARouteSearchModule : ObjectiveC.NSObject {
+  @objc public static var shared: NaviSDK.IARouteSearchModule
+  @objc deinit
+}
+@objc public protocol InvViewProtocol {
+  @objc optional func onMoveMapPostion(point: CoreGraphics.CGPoint)
+  @objc optional func onClickMapIconPostion(point: CoreGraphics.CGPoint)
+  @objc optional func onDrawGroupIcon(items: [NaviSDK.InvGroupMember]?)
+  @objc optional func onZoomToFitDrawIcon(items: [NaviSDK.InvGroupMember]?, selectIndex: ObjectiveC.NSInteger)
+  @objc optional func onZoomToFitDrawDetailIcon(items: [CoreGraphics.CGPoint]?, rectPosition: [CoreGraphics.CGPoint]?, selectIndex: ObjectiveC.NSInteger)
+  @objc optional func updateInfoLayer()
+  @objc optional func onTouchCurrentOn()
+  @objc optional func onTouchZoomIn()
+  @objc optional func onTouchZoomOut()
+  @objc optional func onTouchCompass()
+  @objc optional func onTouchVolume()
+  @objc optional func onTouchMapMode()
+  @objc optional func onTouchReRoute()
+  @objc optional func onTouchMenu()
+}
+@_inheritsConvenienceInitializers @objc public class InvGroupMember : ObjectiveC.NSObject {
+  @objc deinit
+  @objc override dynamic public init()
+}
+extension NSObject {
+  public class var className: Swift.String {
+    get
+  }
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(InvGuideLayer) public class InvGuideLayer : NaviSDK.InvView {
+  @objc override public func updateView()
+  @objc public func updateGuideInfos(_ turnInfo: NaviSDK.GuideTurnInfo?, nextTurnInfo: NaviSDK.GuideTurnInfo?, laneInfo: NaviSDK.GuideLaneInfo?, roadType road_type: NaviSDK.ROAD_TYPE, isSimulationMode: Swift.Bool, isZoomVisible: Swift.Bool)
+  @objc public func updateMMCInfo(_ mmcInfo: NaviSDK.IAMMCDataInfo?, mmcModuleData MMCModuleData: NaviSDK.MMCModuleData?, isSimulationMode: Swift.Bool)
+  @objc public func update(_ camInfo: NaviSDK.GuideCamInfo?, safeInfo: NaviSDK.GuideSafeInfo?, roadType roadtype: NaviSDK.ROAD_TYPE, nowSpeed speed: Swift.Int, isSimulationMode: Swift.Bool)
+  @objc public func highWayInfoList(_ highWayInfoList: [NaviSDK.GuideHigiwayInfo]?, isHighWayInfo: Foundation.NSNumber?, isZoomVisible: Swift.Bool)
+  @objc public func didRealEndInfo()
+  @objc public func updateVmsView(_ vid: Swift.String?, msg: Swift.String?)
+  @objc public func getBottomHeight() -> CoreGraphics.CGFloat
+  @objc deinit
+}
+extension InvGuideLayer : NaviSDK.InvViewProtocol {
+  @objc dynamic public func onTouchMenu()
+  @objc dynamic public func onTouchReRoute()
+}
