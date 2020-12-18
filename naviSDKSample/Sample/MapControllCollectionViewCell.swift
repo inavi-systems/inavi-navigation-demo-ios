@@ -11,7 +11,7 @@ import iNaviNavigationSdk
 class MapControllCollectionViewCell: UICollectionViewCell {
     
     enum menuType:Int, CaseIterable {
-        case CURRENTON = 0,VIEWMODE,FONTSIZE,DAYNIGHT,ZOOMIN,ZOOMOUT,ADDMAPICON,REMOVEMAPICON,TRAFFICON,ENABLEROTATE
+        case CURRENTON = 0,VIEWMODE,FONTSIZE,DAYNIGHT,ZOOMIN,ZOOMOUT,ADDMAPICON,REMOVEMAPICON,TRAFFICON,ENABLEROTATE,HIDECOMPONENT
         func toString() -> String {
             switch self{
             case .CURRENTON : return "지도 현위치 이동"
@@ -24,6 +24,7 @@ class MapControllCollectionViewCell: UICollectionViewCell {
             case .REMOVEMAPICON : return "지도 아이콘 제거"
             case .TRAFFICON : return "교통정보 라인 표출"
             case .ENABLEROTATE : return "지도 회전 세팅"
+            case .HIDECOMPONENT : return "컴포넌트 세팅"
             }
             
         }
@@ -35,6 +36,7 @@ class MapControllCollectionViewCell: UICollectionViewCell {
     lazy var overlay = INaviMapOverlay.create()
     var mTrafficOn = false
     var mEnableRotate = true
+    var isHideComponent = false
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -146,6 +148,10 @@ extension MapControllCollectionViewCell : UITableViewDelegate, UITableViewDataSo
                 mEnableRotate = !mEnableRotate
                 controller.setMapEnableRotate(mEnableRotate)
                 subStr = mEnableRotate ? "회전 가능" : "회전 불가"
+            case .HIDECOMPONENT :
+                isHideComponent = !isHideComponent
+                controller.forceHide(.ALL_COMPONENT, hide: isHideComponent)
+                subStr = isHideComponent ? "HIDE 세팅" : "SHOW 세팅"
             }
             
             if subStr.count != 0 {

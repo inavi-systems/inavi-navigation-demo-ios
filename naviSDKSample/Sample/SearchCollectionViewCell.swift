@@ -157,11 +157,15 @@ extension SearchCollectionViewCell: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if bRecommendMode {
-            self.searchBar.text = self.recommendItems[indexPath.row].recommendWord
-            self.recommendRequest(self.searchBar.text ?? "")
+            if self.recommendItems.count > indexPath.row {
+                self.searchBar.text = self.recommendItems[indexPath.row].recommendWord
+                self.recommendRequest(self.searchBar.text ?? "")
+            }
         } else {
-            let item = self.searchItems[indexPath.row]
-            self.delegate?.onClickSearchItem(item)
+            if self.searchItems.count > indexPath.row {
+                let item = self.searchItems[indexPath.row]
+                self.delegate?.onClickSearchItem(item)
+            }
         }
     }
 }
