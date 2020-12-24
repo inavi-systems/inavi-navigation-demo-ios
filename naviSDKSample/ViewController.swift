@@ -24,7 +24,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var collectioViewHeight: NSLayoutConstraint!
     @IBOutlet weak var collectionViewWidth_Land: NSLayoutConstraint!
-    @IBOutlet weak var centerYConstraint: NSLayoutConstraint!
+    @IBOutlet weak var contentsBottomConstraint: NSLayoutConstraint!
     var showMenuView = true
     var keyboardHeight:CGFloat = 0
     var keyboardShown = false
@@ -37,6 +37,7 @@ class ViewController: UIViewController {
         self.addObservers()
         let controller = INaviController.sharedInstance()
         controller.initalizeNavi("01012348520", target: self)
+        controller.layoutTopSafeArea = true
         
     }
     
@@ -207,11 +208,11 @@ extension ViewController {
     }
     
     func updateCenterLayout() {
-        var yCenter =  keyboardShown ? keyboardHeight / -2 : 0
+        var height =  keyboardShown ? keyboardHeight/2 : 0
         if UIDevice.current.orientation.isLandscape {
-            yCenter = 0
+            height = 0
         }
-        centerYConstraint.constant = yCenter
+        contentsBottomConstraint.constant = height
     }
 }
 
