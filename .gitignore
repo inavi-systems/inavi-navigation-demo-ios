@@ -145,3 +145,9 @@ Dependencies/
 **/xcshareddata/WorkspaceSettings.xcsettings
 
 # End of https://www.gitignore.io/api/xcode,swift,cocoapods,objective-c
+
+### VitePress ###
+node_modules
+docs/plans
+docs/.vitepress/cache
+docs/.vitepress/dist
