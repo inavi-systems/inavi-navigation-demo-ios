@@ -1,5 +1,5 @@
 {
-  "name": "inavi-navigation-ios-developer-guide",
+  "name": "inavi-navigation-sdk-developer-guide-ios",
   "private": true,
   "scripts": {
     "docs:dev": "vitepress dev docs",

@@ -4,7 +4,7 @@ iNavi Navigation SDK iOS 샘플 프로젝트입니다. CocoaPods로 `inavi-navig
 
 ## Developer Guide
 
-- 배포 문서: https://inavi-systems.github.io/inavi-navigation-ios-developer-guide/
+- 배포 문서: https://inavi-systems.github.io/inavi-navigation-sdk-developer-guide-ios/
 - 문서 원본: `docs/index.md`
 
 실행 전 `naviSDKSample/Info.plist`의 `INaviAppKey` 값을 발급받은 AppKey로 설정해야 합니다.
