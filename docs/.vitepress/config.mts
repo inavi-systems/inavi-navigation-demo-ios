@@ -3,7 +3,8 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: 'iNavi Navigation SDK for iOS',
   description: 'iNavi iOS Navigation SDK Developer Guide',
-  base: '/inavi-navigation-sdk-developer-guide-ios/',
+  base: '/inavi-navigation-demo-ios/ios-developer-guide/',
+  outDir: '.vitepress/dist/ios-developer-guide',
   srcExclude: [
     'plans/**',
     'ios-vitepress-pages-plan.md'
@@ -16,7 +17,7 @@ export default defineConfig({
       level: 2
     },
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/inavi-systems/inavi-navigation-sdk-developer-guide-ios' }
+      { icon: 'github', link: 'https://github.com/inavi-systems/inavi-navigation-demo-ios' }
     ]
   }
 })
